@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "uofg-book-society"
+    }
+  },
+  "defaultProject": "uofg-book-society",
+  "cli": {
+    "analytics": false
+  }
 }
