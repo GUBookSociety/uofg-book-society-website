@@ -20,16 +20,16 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: install Chrome
+    - name: Install Chrome
       run: |
         wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
         sudo dpkg -i google-chrome-stable_current_amd64.deb
         sudo apt-get update
 
-    - name: install dependencies
+    - name: Install Dependencies
       run: npm install
 
-    - name: unit and e2e tests
+    - name: Unit and E2E Tests
       run: |
         npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
         npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
