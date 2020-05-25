@@ -11,11 +11,11 @@
 #     -  "Closes #<issue number>" if this commit closes an issue
 #     -  "Contributes to #<issue number>" if it doesn't close it
 
-#
+
 # How to Write a Git Commit Message:
 # https://chris.beams.io/posts/git-commit/
-#
-# 1.Separate subject from body with a blank line
+
+# 1. Separate subject from body with a blank line
 # 2. Limit the subject line to 50 characters
 # 3. Capitalize the subject line
 # 4. Do not end the subject line with a period
