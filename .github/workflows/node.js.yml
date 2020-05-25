@@ -22,7 +22,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
     - run: sudo dpkg -i google-chrome-stable_current_amd64.deb
-    - run: apt-get update
+    - run: sudo apt-get update
     - run: npm ci
     - run: npm install
     - run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
