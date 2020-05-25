@@ -15,13 +15,14 @@ jobs:
         node-version: [10.x, 12.x, 14.x]
 
     steps:
-    - name: Puppeteer Container
-      uses: ianwalter/puppeteer@v2.0.0
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+    - run: wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    - run: dpkg -i google-chrome-stable_current_amd64.deb
+    - run: apt-get update
     - run: npm ci
     - run: npm install
     - run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
