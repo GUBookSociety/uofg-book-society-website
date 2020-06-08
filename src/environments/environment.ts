@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  // Current test database installed by contributor, can be changed later 
+  firebase: {
+    apiKey: "AIzaSyBhTzFioyRorGY-cM6OX3XhBuLieKu8Evo",
+    authDomain: "gu-book-club-website.firebaseapp.com",
+    databaseURL: "https://gu-book-club-website.firebaseio.com",
+    projectId: "gu-book-club-website",
+    storageBucket: "gu-book-club-website.appspot.com",
+    messagingSenderId: "751265853101",
+  }
 };
 
 /*

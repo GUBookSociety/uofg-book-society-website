@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "uofg-book-society",
+      "public": "dist/uofg-book-society",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

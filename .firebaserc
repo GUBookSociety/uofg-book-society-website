@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "gu-book-club-website": {
+      "hosting": {
+        "uofg-book-society": [
+          "gu-book-club-website"
+        ]
+      }
+    }
+  }
+}
