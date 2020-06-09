@@ -8,6 +8,15 @@
 
     <span class="fill-remaining-space"></span>
 
-    <button mat-button class="mr-1">Sign In</button>
-    <button mat-button id="signUp">Sign Up</button>
+    <div class="d-none d-sm-inline">
+        <button mat-button class="mr-1"><span>Sign In</span></button>
+        <button mat-button id="signUp"><span>Sign Up</span></button>
+    </div>
+
+    <div class="d-sm-none">
+        <button mat-icon-button color="secondary" aria-label="Example icon button with a menu icon">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+
 </mat-toolbar>
