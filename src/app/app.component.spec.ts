@@ -7,6 +7,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MatToolbar } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MainPageComponent } from './main-page/main-page.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -20,6 +22,8 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent,
         NavbarComponent,
+        MainPageComponent,
+        PageNotFoundComponent,
         MatToolbar
       ],
     }).compileComponents();
