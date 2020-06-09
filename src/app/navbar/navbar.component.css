@@ -4,18 +4,9 @@
     flex: 1 1 auto;
 }
 
-button {
-    transition: color 0.5s ease;
-}
-
 button:focus {
     outline: none;
     border: 0;
-}
-
-button:hover {
-    color: #C6C6C6;
-    transition: color 0.5s ease;
 }
 
 .nav-link {
@@ -34,9 +25,25 @@ a:hover {
     text-decoration: none;
 }
 
+#signIn {
+    transition: color 0.5s ease;
+}
+
+#signIn:hover {
+    color: #C6C6C6;
+    transition: color 0.5s ease;
+}
+
 #signUp {
     border-color: white;
     border-radius: 6px;
     border-width: 1ch;
     border: solid;
+    transition: background-color 0.2s ease;
+}
+
+#signUp:hover {
+    background-color: white;
+    color: black;
+    transition: background-color 0.2s ease;
 }
