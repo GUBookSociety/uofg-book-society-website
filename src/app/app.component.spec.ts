@@ -6,19 +6,21 @@ import { AngularFireModule } from '@angular/fire';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MatToolbar } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        AngularFireModule.initializeApp(environment.firebase)
+        AngularFireModule.initializeApp(environment.firebase),
+        MatButtonModule,
+        MatIconModule,
       ],
       declarations: [
         AppComponent,
         NavbarComponent,
-        MatToolbar,
-        MatButtonModule
+        MatToolbar
       ],
     }).compileComponents();
   }));

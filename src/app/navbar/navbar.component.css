@@ -18,6 +18,22 @@ button:hover {
     transition: color 0.5s ease;
 }
 
+.nav-link {
+    font-size: 1.1rem;
+}
+
+a {
+    transition: color 0.2s ease;
+    color: white;
+
+}
+
+a:hover {
+    color: #C6C6C6;
+    transition: color 0.2s ease;
+    text-decoration: none;
+}
+
 #signUp {
     border-color: white;
     border-radius: 6px;
