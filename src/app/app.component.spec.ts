@@ -3,16 +3,28 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire';
+import { NavbarComponent } from './navbar/navbar.component';
+import { MatToolbar } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MainPageComponent } from './main-page/main-page.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        AngularFireModule.initializeApp(environment.firebase)
+        AngularFireModule.initializeApp(environment.firebase),
+        MatButtonModule,
+        MatIconModule,
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        NavbarComponent,
+        MainPageComponent,
+        PageNotFoundComponent,
+        MatToolbar
       ],
     }).compileComponents();
   }));
