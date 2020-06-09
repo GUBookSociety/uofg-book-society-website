@@ -3,6 +3,9 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire';
+import { NavbarComponent } from './navbar/navbar.component';
+import { MatToolbar } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -12,7 +15,10 @@ describe('AppComponent', () => {
         AngularFireModule.initializeApp(environment.firebase)
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        NavbarComponent,
+        MatToolbar,
+        MatButtonModule
       ],
     }).compileComponents();
   }));
