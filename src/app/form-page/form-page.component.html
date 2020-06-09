@@ -1,0 +1,19 @@
+<form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+  
+    <label>
+      Name:
+      <input type="text" formControlName="name" required>
+    </label>
+  
+    <label>
+      Price:
+      <input type="number" formControlName="price" required>
+    </label>
+  <br>
+  <button type="submit" [disabled]="!bookForm.valid">Submit</button>
+  </form>
+  <p>
+      {{name}}
+      <br>
+      {{price}}
+  </p>
