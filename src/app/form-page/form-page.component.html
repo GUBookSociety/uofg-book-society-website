@@ -1,19 +1,20 @@
-<form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
-  
-    <label>
-      Name:
-      <input type="text" formControlName="name" required>
-    </label>
-  
-    <label>
-      Price:
-      <input type="number" formControlName="price" required>
-    </label>
-  <br>
-  <button type="submit" [disabled]="!bookForm.valid">Submit</button>
-  </form>
-  <p>
-      {{name}}
-      <br>
-      {{price}}
-  </p>
+<form [formGroup]="this.booksService.form" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+    <input placeholder="Book Name"
+        formControlName="name"
+        type="text"
+        class="form-control">
+    <input placeholder="Price"
+        formControlName="price"
+        type="number"
+        class="form-control">
+    </div>
+    
+    <button 
+       class="waves-effect waves-light btn col s12" 
+       (click)="onSubmit()">
+    Submit
+  </button>
+</form>
+
+<app-books-list></app-books-list>

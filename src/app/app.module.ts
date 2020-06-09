@@ -22,6 +22,7 @@ import { FormPageComponent } from './form-page/form-page.component';
 // Form imports
 import { BooksService } from "./shared/books.service";
 import { ReactiveFormsModule } from "@angular/forms";
+import { BooksListComponent } from './books-list/books-list.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ReactiveFormsModule } from "@angular/forms";
     NavbarComponent,
     MainPageComponent,
     PageNotFoundComponent,
-    FormPageComponent
+    FormPageComponent,
+    BooksListComponent
   ],
   imports: [
     BrowserModule,
