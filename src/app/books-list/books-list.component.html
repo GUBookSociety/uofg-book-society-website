@@ -2,5 +2,8 @@
     <tr *ngFor="let item of items">
        <td>{{ item.payload.doc.data().name }}</td>
        <td>{{ item.payload.doc.data().price }}</td>
+       <button (click)="deleteItem(item)">
+          Delete
+       </button>
     </tr>
     </tbody>

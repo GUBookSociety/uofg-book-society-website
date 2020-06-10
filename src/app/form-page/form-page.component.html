@@ -3,16 +3,19 @@
     <input placeholder="Book Name"
         formControlName="name"
         type="text"
-        class="form-control">
+        class="form-control"
+        required>
     <input placeholder="Price"
         formControlName="price"
         type="number"
-        class="form-control">
+        class="form-control"
+        required>
     </div>
     
     <button 
        class="waves-effect waves-light btn col s12" 
-       (click)="onSubmit()">
+       type="submit"
+       [disabled]="!booksService.form.valid">
     Submit
   </button>
 </form>

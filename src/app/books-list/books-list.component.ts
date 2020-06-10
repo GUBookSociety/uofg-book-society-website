@@ -19,4 +19,6 @@ export class BooksListComponent implements OnInit {
     .getItems()
     .subscribe(res => (this.items = res));
 
+  deleteItem = data => this.booksService.deleteItem(data);
+
 }

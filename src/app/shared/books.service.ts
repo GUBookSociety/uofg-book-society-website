@@ -26,6 +26,13 @@ export class BooksService {
     });
   }
 
+  deleteItem(data){
+    return this.firestore
+      .collection("items")
+      .doc(data.payload.doc.id)
+      .delete();
+  }
+
   form = new FormGroup({
     name: new FormControl(''),
     price: new FormControl(''),
