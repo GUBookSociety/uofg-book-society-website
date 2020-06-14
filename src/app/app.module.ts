@@ -18,11 +18,13 @@ import {MatIconModule} from '@angular/material/icon';
 import { MainPageComponent } from './main-page/main-page.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { FormPageComponent } from './form-page/form-page.component';
+import {MatFormFieldModule} from '@angular/material/form-field'; 
 
 // Form imports
 import { BooksService } from "./shared/books.service";
 import { ReactiveFormsModule } from "@angular/forms";
 import { BooksListComponent } from './books-list/books-list.component';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +33,7 @@ import { BooksListComponent } from './books-list/books-list.component';
     MainPageComponent,
     PageNotFoundComponent,
     FormPageComponent,
-    BooksListComponent
+    BooksListComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +45,7 @@ import { BooksListComponent } from './books-list/books-list.component';
     MatButtonModule,
     MatIconModule,
     ReactiveFormsModule,
+    MatFormFieldModule,
   ],
   providers: [BooksService],
   bootstrap: [AppComponent]

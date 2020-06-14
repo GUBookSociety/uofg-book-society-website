@@ -1,23 +1,17 @@
 <form [formGroup]="this.booksService.form" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-    <input placeholder="Book Name"
-        formControlName="name"
-        type="text"
-        class="form-control"
-        required>
-    <input placeholder="Price"
-        formControlName="price"
-        type="number"
-        class="form-control"
-        required>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <input matInput placeholder="Book Name" formControlName="name" type="text" required>
+            </div>
+            <div class="col-sm">
+                <input mat-form-field placeholder="Price" formControlName="price" type="number" required>
+            </div>
+        </div>
     </div>
-    
-    <button 
-       class="waves-effect waves-light btn col s12" 
-       type="submit"
-       [disabled]="!booksService.form.valid">
-    Submit
-  </button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!booksService.form.valid">
+        Submit
+    </button>
 </form>
 
 <app-books-list></app-books-list>
