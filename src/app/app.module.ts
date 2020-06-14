@@ -28,6 +28,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatChipsModule} from '@angular/material/chips';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import {MatChipsModule} from '@angular/material/chips';
     MainPageComponent,
     PageNotFoundComponent,
     FormPageComponent,
-    BooksListComponent
+    BooksListComponent,
+    SignInComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
