@@ -3,7 +3,8 @@
         <mat-icon>book</mat-icon>
     </button>
 
-    <a routerLink=""><span class="font-weight-light mr-3">Glasgow University Book Society</span></a>
+    <a routerLink=""><span class="d-none d-sm-inline font-weight-light mr-3">Glasgow University Book Society</span></a>
+    <a routerLink=""><span class="d-sm-none font-weight-light mr-3">GU Book Society</span></a>
 
 
     <a routerLink=""><span class="d-none d-lg-inline font-weight-light nav-link pb-1">Link 1</span></a>
@@ -18,9 +19,16 @@
     </div>
 
     <div class="d-lg-none">
-        <button mat-icon-button color="secondary" aria-label="Example icon button with a menu icon">
+        <button mat-icon-button color="secondary" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-label="Toggle navigation">
             <mat-icon>menu</mat-icon>
         </button>
     </div>
 
 </mat-toolbar>
+
+<div class="d-lg-none collapse" id="navbarToggleExternalContent">
+    <div id="dropdown" class="px-4 pb-4 pt-2">
+      <h5 class="text-white h4">Collapsed content</h5>
+      <span class="text-muted">Toggleable via the navbar brand.</span>
+    </div>
+</div>

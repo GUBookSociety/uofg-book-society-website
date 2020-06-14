@@ -30,6 +30,9 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatChipsModule} from '@angular/material/chips';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+// ng-Bootstrap imports
 
 @NgModule({
   declarations: [
@@ -55,7 +58,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatChipsModule
+    MatChipsModule,
+    NgbModule,
 
   ],
   providers: [BooksService],

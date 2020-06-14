@@ -47,3 +47,7 @@ a:hover {
     color: black;
     transition: background-color 0.2s ease;
 }
+
+#dropdown {
+    background-color: #24292e;
+}
