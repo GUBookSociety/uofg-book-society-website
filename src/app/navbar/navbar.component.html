@@ -6,10 +6,8 @@
     <a routerLink=""><span class="d-none d-sm-inline font-weight-light mr-3">Glasgow University Book Society</span></a>
     <a routerLink=""><span class="d-sm-none font-weight-light mr-3">GU Book Society</span></a>
 
-
-    <a routerLink=""><span class="d-none d-lg-inline font-weight-light nav-link pb-1">Link 1</span></a>
     <a routerLink="/form"><span class="d-none d-lg-inline font-weight-light nav-link pb-1">Form Page</span></a>
-    <a routerLink="404"><span class="d-none d-lg-inline font-weight-light nav-link pb-1">Link 3</span></a>
+    <a routerLink="404"><span class="d-none d-lg-inline font-weight-light nav-link pb-1">404 Page</span></a>
 
     <span class="fill-remaining-space"></span>
 
@@ -26,9 +24,15 @@
 
 </mat-toolbar>
 
-<div class="d-lg-none collapse" id="navbarToggleExternalContent">
+<div class="d-lg-none collapse text-center" id="navbarToggleExternalContent">
     <div id="dropdown" class="px-4 pb-4 pt-2">
-      <h5 class="text-white h4">Collapsed content</h5>
-      <span class="text-muted">Toggleable via the navbar brand.</span>
+        <a routerLink="/form"><span class="h6">Form Page</span></a>
+        <hr class="nav-divider">
+        <a routerLink="/404"><span class="h6">404 Page</span></a>
+        <hr class="nav-divider">
+        <div class="text-center">
+            <button mat-button class="ml-0 mr-2 collapsedButton" routerLink="signIn"><span>Sign In</span></button>
+            <button mat-button class="collapsedButton" routerLink="signUp"><span>Sign Up</span></button>
+        </div>
     </div>
 </div>
