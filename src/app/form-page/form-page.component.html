@@ -1,17 +1,29 @@
 <form [formGroup]="this.booksService.form" (ngSubmit)="onSubmit()">
-    <div class="container">
+    <div class="container ml-5">
         <div class="row">
-            <div class="col-sm">
-                <input matInput placeholder="Book Name" formControlName="name" type="text" required>
-            </div>
-            <div class="col-sm">
-                <input mat-form-field placeholder="Price" formControlName="price" type="number" required>
-            </div>
+            <h2 class="mat-h2">New Book form</h2>
+        </div>
+        <div class="row">
+            <mat-form-field apperance="fill">
+                <mat-label>Book Name</mat-label>
+                <input matInput formControlName="name" type="text" required>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field apperance="fill">
+                <mat-label>Price</mat-label>
+                <span matPrefix>£ &nbsp;</span>
+                <input matInput formControlName="price" type="number" required>
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <button mat-raised-button color="primary" type="submit" [disabled]="!booksService.form.valid">
+                Submit
+            </button>
         </div>
     </div>
-    <button mat-raised-button color="primary" type="submit" [disabled]="!booksService.form.valid">
-        Submit
-    </button>
 </form>
+<br>
 
 <app-books-list></app-books-list>

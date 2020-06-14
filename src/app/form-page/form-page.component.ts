@@ -14,10 +14,6 @@ export class FormPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  removeItem(item) {
-
-  }
-  
   onSubmit() {
     let data = this.booksService.form.value;
 
