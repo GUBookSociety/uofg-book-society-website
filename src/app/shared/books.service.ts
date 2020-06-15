@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormControl, FormGroup } from "@angular/forms";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
@@ -12,6 +12,7 @@ export class BooksService {
 
   }
 
+  // Should return a type of oberserable, can be done after we make a model
   getItems() {
     return this.firestore.collection("items").snapshotChanges();
   }
@@ -34,7 +35,11 @@ export class BooksService {
   }
 
   form = new FormGroup({
-    name: new FormControl(''),
-    price: new FormControl(''),
+    name: new FormControl('',[
+      Validators.required
+    ]),
+    price: new FormControl('',[
+      Validators.required
+    ]),
   });
 }

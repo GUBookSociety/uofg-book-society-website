@@ -8,7 +8,7 @@ import { BooksService } from "../shared/books.service";
 })
 export class BooksListComponent implements OnInit {
 
-  constructor(private booksService:BooksService) { }
+  constructor(private booksService: BooksService) { }
   items;
   ngOnInit(): void {
     this.getItems();
@@ -16,8 +16,8 @@ export class BooksListComponent implements OnInit {
 
   getItems = () =>
     this.booksService
-    .getItems()
-    .subscribe(res => (this.items = res));
+      .getItems()
+      .subscribe(res => (this.items = res));
 
   deleteItem = data => this.booksService.deleteItem(data);
 
