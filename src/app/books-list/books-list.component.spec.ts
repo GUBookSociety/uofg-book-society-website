@@ -5,8 +5,7 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from '../../environments/environment';
 import { BooksService } from '../shared/books.service';
 import { DebugElement } from '@angular/core';
-import { of } from 'rxjs'
-import { By } from '@angular/platform-browser';
+import { Book } from '../shared/models/book.model';
 
 
 describe('BooksListComponent', () => {
@@ -36,7 +35,7 @@ describe('BooksListComponent', () => {
     service = de.injector.get(BooksService);
 
 
-    spy = spyOn(service, 'getItems').and.returnValue(of());
+    spy = spyOn(service, 'getBooks').and.returnValue(new Set());
 
     fixture.detectChanges();
   });

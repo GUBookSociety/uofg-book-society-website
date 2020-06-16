@@ -34,8 +34,11 @@ describe('FormPageComponent', () => {
   });
 
   it('form valid when full', () => {
-    component.booksService.form.get('name').setValue("Test");
-    component.booksService.form.get('price').setValue(6);
+    component.booksService.form.get('Name').setValue("Test");
+    component.booksService.form.get('Author').setValue("test");
+    component.booksService.form.get('PageCount').setValue(2);
+    component.booksService.form.get('Rating').setValue(45);
+    component.booksService.form.get('Month').setValue("test");
     expect(component.booksService.form.valid).toBeTruthy();
   });
 });
