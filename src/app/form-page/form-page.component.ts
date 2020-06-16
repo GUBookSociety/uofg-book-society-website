@@ -17,7 +17,7 @@ export class FormPageComponent implements OnInit {
   onSubmit() {
     let data = this.booksService.form.value;
 
-    this.booksService.createItem(data)
+    this.booksService.createBook(data)
       .then(res => {
         this.booksService.form.reset()
       });

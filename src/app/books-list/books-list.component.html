@@ -3,19 +3,31 @@
       <h2 class="mat-h2">List of books</h2>
    </div>
    <div class="row">
-      <div class="col-sm-4 col-md-3">
+      <div class="col-sm-4 col-md-2">
          <h3 class="mat-h3">Name</h3>
       </div>
-      <div class="col-sm-4 col-md-3">
-         <h3 class="mat-h3">Price</h3>
+      <div class="col-sm-4 col-md-2">
+         <h3 class="mat-h3">Author</h3>
+      </div>
+      <div class="col-sm-4 col-md-2">
+         <h3 class="mat-h3">Page count</h3>
+      </div>
+      <div class="col-sm-4 col-md-2">
+         <h3 class="mat-h3">Average rating</h3>
+      </div>
+      <div class="col-sm-4 col-md-2">
+         <h3 class="mat-h3">Month read</h3>
       </div>
    </div>
 
-   <div class="row" *ngFor="let item of items">
-      <div class="col-sm-4 col-md-3">{{ item.payload.doc.data().name }}</div>
-      <div class="col-sm-4 col-md-3">{{ item.payload.doc.data().price }}</div>
-      <div class="col-sm-4 col-md-3">
-         <button mat-flat-button color="warn" (click)="deleteItem(item)">
+   <div class="row" *ngFor="let book of books">
+      <div class="col-md-2">{{ book.name}}</div>
+      <div class="col-md-2">{{ book.author }}</div>
+      <div class="col-md-2">{{ book.pageCount }}</div>
+      <div class="col-md-2">{{ book.avgRating }}</div>
+      <div class="col-md-2">{{ book.month }}</div>
+      <div class="col-md-2">
+         <button mat-flat-button color="warn" (click)="deleteBook(book)">
             Delete
          </button>
       </div>
