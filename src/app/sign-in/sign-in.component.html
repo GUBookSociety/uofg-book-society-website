@@ -1,3 +1,30 @@
-<p>sign-in works!</p>
+<div *ngIf="authService.getUser() | async as user; else showLogin">
+    <h1>Hello Liam!</h1>
+    <button (click)="authService.logout()">Logout</button>
+</div>
+    <ng-template #showLogin>
+        <p>Please login.</p>
+        <label>
+            Username:
+            <input type="text" [formControl]="username">
+          </label>
+        
+          <label>
+            Password:
+            <input type="text" [formControl]="password">
+          </label>
+        <button (click)="authService.signup(username.value, password.value)">Sign Up</button>
+        <button (click)="authService.login(username.value, password.value)">Login</button>
+        <div *ngIf="authService.err">{{ authService.err }}</div>
+    </ng-template>
+
+
+
+<!-- <p>{{ username.value }}</p>
+<p>{{ password.value }}</p> -->
+
+
+
+<br>
 
 <a routerLink="">Click this to go back home</a>

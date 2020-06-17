@@ -31,6 +31,7 @@ import {MatChipsModule} from '@angular/material/chips';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';
 
 // ng-Bootstrap imports
 
@@ -50,6 +51,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    AngularFireAuthGuardModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MatToolbarModule,

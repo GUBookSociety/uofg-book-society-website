@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../authentication/authentication.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-in',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignInComponent implements OnInit {
 
-  constructor() { }
+  username = new FormControl('');
+  password = new FormControl('');
+
+  constructor(public authService: AuthenticationService) { }
 
   ngOnInit(): void {
+
   }
 
 }
