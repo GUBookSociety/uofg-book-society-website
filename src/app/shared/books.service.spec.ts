@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { BooksService } from './books.service';
 import { AngularFireModule } from '@angular/fire';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../environments/environment';
 
 describe('BooksService', () => {
   let service: BooksService;
