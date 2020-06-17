@@ -28,10 +28,6 @@ export class AuthenticationService {
     })
   }
 
-  getUser() {
-    return this.auth.user;
-  }
-
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));
     console.log(user);
@@ -51,14 +47,14 @@ export class AuthenticationService {
   // password is "bookclub"
   login(email: string, password: string) {
 
-    return this.auth.signInWithEmailAndPassword(email, password)
+    this.auth.signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.ngZone.run(() => {
           this.router.navigate(['']);
         });
         // this.SetUserData(result.user);
       }).catch((error) => {
-        window.alert(error.message)
+        this.err = error.message;
       })
 
     // this.auth.signInWithEmailAndPassword(email, password).catch(error => {
@@ -67,9 +63,9 @@ export class AuthenticationService {
   }
 
   logout() {
-    return this.auth.signOut().then(() => {
+    this.auth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['signIn']);
+      this.router.navigate(['']);
     })
   }
 

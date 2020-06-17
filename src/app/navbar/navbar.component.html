@@ -11,7 +11,7 @@
 
     <span class="fill-remaining-space"></span>
 
-    <div class="d-none d-lg-inline">
+    <div *ngIf="!authService.isLoggedIn" class="d-none d-lg-inline">
         <button mat-button class="mr-1" id="signIn" routerLink="signIn"><span>Sign In</span></button>
         <button mat-button id="signUp" routerLink="signUp"><span>Sign Up</span></button>
     </div>
