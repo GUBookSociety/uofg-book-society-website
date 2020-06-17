@@ -16,3 +16,5 @@
       <textarea matInput></textarea>
     </mat-form-field>
 </div>
+
+<button mat-raised-button color="primary" class="ml-3" *ngIf="authService.getUser() | async as user" (click)="authService.logout()">Logout</button>

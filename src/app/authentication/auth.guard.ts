@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 
-export class SignedInAuthGuard implements CanActivate {
+export class AuthGuard implements CanActivate {
   
   constructor(
     public authService: AuthenticationService,
@@ -17,11 +17,12 @@ export class SignedInAuthGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    if (!this.authService.user) {
-      window.alert('Access denied, you\'re already signed in, so can\'t access this page!\nYou will be redirected to the home screen.')
-      this.router.navigate([''])
+      console.log("authStatus: " + (this.authService.isLoggedIn));
+      if (this.authService.isLoggedIn !== true) {
+        window.alert('Access denied, login is required to access this page!\nYou will be redirected to the login screen.')
+        this.router.navigate(['signIn'])
+      }
+      return true;
     }
-    return true;
-  }
 
 }

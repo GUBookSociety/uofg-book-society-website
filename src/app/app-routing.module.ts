@@ -7,8 +7,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { FormPageComponent } from './form-page/form-page.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
-import { AuthGuard } from './shared/auth.guard';
-import { SignedInAuthGuard } from './shared/signedIn.guard';
+import { AuthGuard } from './authentication/auth.guard';
+import { SignedInAuthGuard } from './authentication/signedIn.guard';
 
 const routes: Routes = [
   { path: '', component: MainPageComponent },
