@@ -4,6 +4,9 @@ import { NavbarComponent } from './navbar.component';
 import { MatToolbar } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { RouterTestingModule } from '@angular/router/testing';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../../environments/environment';
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
@@ -12,6 +15,8 @@ describe('NavbarComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
+        RouterTestingModule,
+        AngularFireModule.initializeApp(environment.firebase),
         MatButtonModule,
         MatIconModule
       ],
