@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../authentication/authentication.service';
+import { UserService } from '../shared/user.service';
 
 @Component({
   selector: 'app-main-page',
@@ -8,11 +8,16 @@ import { AuthenticationService } from '../authentication/authentication.service'
 })
 export class MainPageComponent implements OnInit {
 
-  constructor(public authService: AuthenticationService){
+  constructor(public userService: UserService){
     
   }
 
   ngOnInit(): void {
+
+  }
+
+  printUserData(): void {
+    console.log(this.userService.user.Email);
   }
 
 }

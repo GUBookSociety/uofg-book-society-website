@@ -2,17 +2,20 @@ import { Injectable, NgZone } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { AngularFirestoreDocument, AngularFirestore } from '@angular/fire/firestore';
+import { User } from './IUser';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
 
+  uid: string;
   authuser: Observable<firebase.User>;
   err: string;
   userData: any; // Save logged in user data
 
-  constructor(public auth: AngularFireAuth, public ngZone: NgZone, public router: Router) {    
+  constructor(public afs: AngularFirestore, public auth: AngularFireAuth, public ngZone: NgZone, public router: Router) {    
     /* Saving user data in localstorage when 
     logged in and setting up null when logged out */
     this.authuser = auth.user;
@@ -26,12 +29,6 @@ export class AuthenticationService {
         JSON.parse(localStorage.getItem('user'));
       }
     })
-  }
-
-  get isLoggedIn(): boolean {
-    const user = JSON.parse(localStorage.getItem('user'));
-    console.log(user);
-    return (user !== null) ? true : false;
   }
 
   getError(): string {
@@ -52,7 +49,8 @@ export class AuthenticationService {
         this.ngZone.run(() => {
           this.router.navigate(['']);
         });
-        // this.SetUserData(result.user);
+        this.uid = result.user.uid;
+        this.SetUserData(result.user);
       }).catch((error) => {
         this.err = error.message;
       })
@@ -64,9 +62,28 @@ export class AuthenticationService {
 
   logout() {
     this.auth.signOut().then(() => {
+      // this.userData = null;
       localStorage.removeItem('user');
+      localStorage.removeItem('userData');
       this.router.navigate(['']);
     })
+  }
+
+
+  SetUserData(user) {
+    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`Users/${this.uid}`);
+    // userRef.snapshotChanges().subscribe(res => (console.log(res.payload.data().Forename)));
+    // userRef.snapshotChanges().subscribe(res => (this.item = res));
+    userRef.get().subscribe(docRef => {
+      const data = docRef.data();
+      const user = {
+        id: this.uid,
+        Email: docRef.data().Email,
+        Forename: data.Forename,
+        Surname: data.Surname
+      }
+      localStorage.setItem('userData', JSON.stringify(user));
+    });
   }
 
 }
