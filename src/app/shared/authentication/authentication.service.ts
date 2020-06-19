@@ -11,7 +11,7 @@ export class AuthenticationService {
 
   err: string;
 
-  constructor(public firestore: AngularFirestore, public auth: AngularFireAuth, public ngZone: NgZone, public router: Router) { }
+  constructor(public firestore: AngularFirestore, public auth: AngularFireAuth, public ngZone: NgZone, public router: Router) { this.err = "" }
 
   // returns true or false dependent on if a user is logged in
   get isLoggedIn(): boolean {
@@ -42,7 +42,7 @@ export class AuthenticationService {
         this.router.navigate(['']);
       });
     }).catch((error) => {
-      this.err = error.message;
+      this.err = this.formatErrorMessage(error.message);
     })
   }
 
@@ -58,7 +58,7 @@ export class AuthenticationService {
       this.SetUserData(result.user);
       this.err = "";
     }).catch((error) => {
-      this.err = error.message;
+      this.err = this.formatErrorMessage(error.message);
     })
   }
 
@@ -85,6 +85,19 @@ export class AuthenticationService {
       localStorage.removeItem('userData');
       this.router.navigate(['']);
     })
+  }
+
+  formatErrorMessage(errorMsg: string): string {
+    console.log(errorMsg);
+    if (errorMsg == "The email address is badly formatted.") {
+      return "The email you entered isn't valid!";
+    } else if (errorMsg == "There is no user record corresponding to this identifier. The user may have been deleted.") {
+      return "This account doesn't exist!";
+    } else if (errorMsg == "The password is invalid or the user does not have a password.") {
+      return "This password is invalid!";
+    } else {
+      return errorMsg;
+    }
   }
 
 }
