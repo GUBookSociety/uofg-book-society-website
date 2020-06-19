@@ -10,35 +10,36 @@ import { User } from './IUser';
 })
 export class AuthenticationService {
 
-  uid: string;
-  authuser: Observable<firebase.User>;
   err: string;
-  userData: any; // Save logged in user data
 
-  constructor(public afs: AngularFirestore, public auth: AngularFireAuth, public ngZone: NgZone, public router: Router) {    
-    /* Saving user data in localstorage when 
-    logged in and setting up null when logged out */
-    this.authuser = auth.user;
-    this.auth.authState.subscribe(user => {
-      if (user) {
-        this.userData = user;
-        localStorage.setItem('user', JSON.stringify(this.userData));
-        JSON.parse(localStorage.getItem('user'));
-      } else {
-        localStorage.setItem('user', null);
-        JSON.parse(localStorage.getItem('user'));
-      }
-    })
+  constructor(public firestore: AngularFirestore, public auth: AngularFireAuth, public ngZone: NgZone, public router: Router) { }
+
+  get isLoggedIn(): boolean {
+    const user = JSON.parse(localStorage.getItem('userData'));
+    return (user !== null) ? true : false;
   }
 
-  getError(): string {
-    return this.err;
-  }
-
-  signup(email: string, password: string): void {
-    this.auth.createUserWithEmailAndPassword(email, password).catch(error => {
-      this.err = error.message;
-    });;
+  signup(forename, surname, email, password) {
+    return this.auth.createUserWithEmailAndPassword(email, password)
+      .then((result) => {
+        const userRef: AngularFirestoreDocument<any> = this.firestore.doc(`Users/${result.user.uid}`);
+        userRef.set({
+          "Email": email,
+          "Forename": forename,
+          "Surname": surname
+        });
+        const user = {
+          id: result.user.uid,
+          Email: email,
+          Forename: forename,
+          Surname: surname
+        }
+        localStorage.setItem('userData', JSON.stringify(user));
+        this.err = "";
+        this.router.navigate(['']);
+      }).catch((error) => {
+        this.err = error.message;
+      })
   }
 
   // password is "bookclub"
@@ -49,8 +50,8 @@ export class AuthenticationService {
         this.ngZone.run(() => {
           this.router.navigate(['']);
         });
-        this.uid = result.user.uid;
         this.SetUserData(result.user);
+        this.err = "";
       }).catch((error) => {
         this.err = error.message;
       })
@@ -63,7 +64,6 @@ export class AuthenticationService {
   logout() {
     this.auth.signOut().then(() => {
       // this.userData = null;
-      localStorage.removeItem('user');
       localStorage.removeItem('userData');
       this.router.navigate(['']);
     })
@@ -71,18 +71,18 @@ export class AuthenticationService {
 
 
   SetUserData(user) {
-    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`Users/${this.uid}`);
+    const userRef: AngularFirestoreDocument<User> = this.firestore.doc(`Users/${user.uid}`);
     // userRef.snapshotChanges().subscribe(res => (console.log(res.payload.data().Forename)));
     // userRef.snapshotChanges().subscribe(res => (this.item = res));
     userRef.get().subscribe(docRef => {
       const data = docRef.data();
-      const user = {
-        id: this.uid,
-        Email: docRef.data().Email,
+      const userData = {
+        id: user.uid,
+        Email: data.Email,
         Forename: data.Forename,
         Surname: data.Surname
       }
-      localStorage.setItem('userData', JSON.stringify(user));
+      localStorage.setItem('userData', JSON.stringify(userData));
     });
   }
 

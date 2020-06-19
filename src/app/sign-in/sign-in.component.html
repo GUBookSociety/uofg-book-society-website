@@ -4,17 +4,28 @@
 </div>
     <ng-template #showLogin>
         <p>Please login.</p>
+
         <label>
-            Username:
-            <input type="text" [formControl]="username">
+          Forename:
+          <input type="text" [formControl]="forename">
+        </label>
+      
+        <label>
+          Surname:
+          <input type="text" [formControl]="surname">
+        </label>
+
+          <label>
+            Email:
+            <input type="text" [formControl]="email">
           </label>
         
           <label>
             Password:
             <input type="text" [formControl]="password">
           </label>
-        <button (click)="authService.signup(username.value, password.value)">Sign Up</button>
-        <button (click)="authService.login(username.value, password.value)">Login</button>
+        <button (click)="authService.signup(forename.value, surname.value, email.value, password.value)">Sign Up</button>
+        <button (click)="authService.login(email.value, password.value)">Login</button>
         <div *ngIf="authService.err">{{ authService.err }}</div>
     </ng-template>
 

@@ -26,18 +26,8 @@
 
 <!-- item.payload.doc.data().name -->
 
-<div *ngIf="userService.user as user">
-  {{ user.Email }}
-  {{ user.id }}
+<div class="ml-3" *ngIf="userService.user as user">
+  <p>Signed in: {{ user.Forename }} {{ user.Surname }}</p>
+  <p>ID: {{ user.id }}</p>
+  <p>Email Address: {{ user.Email }}</p>
 </div>
-
-<!-- <div *ngIf="this.user">
-  {{ this.forename }} -->
-  <!-- {{ this.user.payload.data().Forename }} -->
-  <!-- {{ (this.user | async ).Forename }} -->
-<!-- </div> -->
-
-<button mat-raised-button color="primary" class="ml-3" (click)="printUserData()">Print Data</button>
-
-<button mat-raised-button color="primary" class="ml-3" *ngIf="userService.isLoggedIn">Logout</button>
-<!-- <button mat-raised-button color="primary" class="ml-3" *ngIf="authService.isLoggedIn" (click)="authService.logout()">Logout</button> -->

@@ -9,7 +9,9 @@ import { FormControl } from '@angular/forms';
 })
 export class SignInComponent implements OnInit {
 
-  username = new FormControl('');
+  forename = new FormControl('');
+  surname = new FormControl('');
+  email = new FormControl('');
   password = new FormControl('');
 
   constructor(public authService: AuthenticationService) { }
