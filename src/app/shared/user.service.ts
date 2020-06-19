@@ -1,17 +1,13 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestoreDocument, AngularFirestore } from '@angular/fire/firestore';
-import { User } from '../authentication/IUser';
+import { User } from './authentication/IUser';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  id: string;
-
-  constructor(public firestore: AngularFirestore) { 
-    // this.id = JSON.parse(localStorage.getItem('user')).uid;
-  }
+  constructor(public firestore: AngularFirestore) { }
 
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));
@@ -19,9 +15,11 @@ export class UserService {
   }
 
   // to use this in a component:
-    // this.userService.getUserData().subscribe(userRef => this.forename = userRef.payload.data().Forename);
-    // with no parameter, this function defaults to current user
-    // id: string = this.id
+    // <div class="ml-3" *ngIf="userService.user as user">
+    // <p>Signed in: {{ user.Forename }} {{ user.Surname }}</p>
+    // <p>ID: {{ user.id }}</p>
+    // <p>Email Address: {{ user.Email }}</p>
+    // </div>
   get user(): User {
     return JSON.parse(localStorage.getItem("userData"));
   }
