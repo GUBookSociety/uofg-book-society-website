@@ -1,33 +1,19 @@
-<div *ngIf="authService.isLoggedIn; else showLogin">
-    <h1>Hello Liam!</h1>
-    <button (click)="authService.logout()">Logout</button>
+
+<div>
+    <p>Please login.</p>
+
+      <label>
+        Email:
+        <input type="text" [formControl]="email">
+      </label>
+    
+      <label>
+        Password:
+        <input type="text" [formControl]="password">
+      </label>
+    <button (click)="authService.login(email.value, password.value)">Login</button>
+    <div *ngIf="authService.err">{{ authService.err }}</div>
 </div>
-    <ng-template #showLogin>
-        <p>Please login.</p>
-
-        <label>
-          Forename:
-          <input type="text" [formControl]="forename">
-        </label>
-      
-        <label>
-          Surname:
-          <input type="text" [formControl]="surname">
-        </label>
-
-          <label>
-            Email:
-            <input type="text" [formControl]="email">
-          </label>
-        
-          <label>
-            Password:
-            <input type="text" [formControl]="password">
-          </label>
-        <button (click)="authService.signup(forename.value, surname.value, email.value, password.value)">Sign Up</button>
-        <button (click)="authService.login(email.value, password.value)">Login</button>
-        <div *ngIf="authService.err">{{ authService.err }}</div>
-    </ng-template>
 
 
 

@@ -1,3 +1,37 @@
-<p>sign-up works!</p>
+
+<div>
+    <p>Sign up here.</p>
+
+    <label>
+      Forename:
+      <input type="text" [formControl]="forename">
+    </label>
+  
+    <label>
+      Surname:
+      <input type="text" [formControl]="surname">
+    </label>
+
+      <label>
+        Email:
+        <input type="text" [formControl]="email">
+      </label>
+    
+      <label>
+        Password:
+        <input type="text" [formControl]="password">
+      </label>
+    <button (click)="authService.signup(forename.value, surname.value, email.value, password.value)">Sign Up</button>
+    <div *ngIf="authService.err">{{ authService.err }}</div>
+</div>
+
+
+
+<!-- <p>{{ username.value }}</p>
+<p>{{ password.value }}</p> -->
+
+
+
+<br>
 
 <a routerLink="">Click this to go back home</a>
