@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { AngularFirestoreDocument, AngularFirestore } from '@angular/fire/firestore';
 import { User } from './IUser';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class AuthenticationService {
 
   err: string;
 
-  constructor(public firestore: AngularFirestore, public auth: AngularFireAuth, public ngZone: NgZone, public router: Router) { this.err = "" }
+  constructor(public firestore: AngularFirestore, public auth: AngularFireAuth, public ngZone: NgZone, public router: Router, private _snackBar: MatSnackBar) { this.err = "" }
 
   // returns true or false dependent on if a user is logged in
   get isLoggedIn(): boolean {
@@ -40,6 +41,9 @@ export class AuthenticationService {
       this.err = "";
       this.ngZone.run(() => {
         this.router.navigate(['']);
+      });
+      this._snackBar.open("Logged in as " + forename + " " + surname, "Dismiss", {
+        duration: 3000
       });
     }).catch((error) => {
       this.err = this.formatErrorMessage(error.message);
@@ -74,6 +78,9 @@ export class AuthenticationService {
         Forename: data.Forename,
         Surname: data.Surname
       }
+      this._snackBar.open("Logged in as " + data.Forename + " " + data.Surname, "Dismiss", {
+        duration: 3000
+      });
       localStorage.setItem('userData', JSON.stringify(userData));
     });
   }
