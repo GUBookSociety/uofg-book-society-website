@@ -5,6 +5,7 @@ import { AuthenticationService } from '../shared/authentication/authentication.s
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../../environments/environment';
 import { RouterTestingModule } from '@angular/router/testing';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 describe('SignInComponent', () => {
   let component: SignInComponent;
@@ -14,7 +15,8 @@ describe('SignInComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        AngularFireModule.initializeApp(environment.firebase)
+        AngularFireModule.initializeApp(environment.firebase),
+        MatSnackBarModule
       ],
       declarations: [ SignInComponent ]
     })

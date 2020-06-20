@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../../environments/environment';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
@@ -18,7 +19,8 @@ describe('NavbarComponent', () => {
         RouterTestingModule,
         AngularFireModule.initializeApp(environment.firebase),
         MatButtonModule,
-        MatIconModule
+        MatIconModule,
+        MatSnackBarModule
       ],
       declarations: [ 
         NavbarComponent,

@@ -4,6 +4,7 @@ import { AuthenticationService } from './authentication.service';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../../../environments/environment';
 import { RouterTestingModule } from '@angular/router/testing';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 describe('AuthenticationService', () => {
   let service: AuthenticationService;
@@ -13,6 +14,7 @@ describe('AuthenticationService', () => {
       imports: [
         RouterTestingModule,
         AngularFireModule.initializeApp(environment.firebase),
+        MatSnackBarModule
       ]
     });
     service = TestBed.inject(AuthenticationService);
