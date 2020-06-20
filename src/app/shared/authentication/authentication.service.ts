@@ -88,7 +88,6 @@ export class AuthenticationService {
   }
 
   formatErrorMessage(errorMsg: string): string {
-    console.log(errorMsg);
     if (errorMsg == "The email address is badly formatted.") {
       return "The email you entered isn't valid!";
     } else if (errorMsg == "There is no user record corresponding to this identifier. The user may have been deleted.") {

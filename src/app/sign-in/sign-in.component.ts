@@ -16,7 +16,7 @@ export class SignInComponent implements OnInit {
   constructor(public authService: AuthenticationService) { }
 
   ngOnInit(): void {
-
+    this.authService.err = "";
   }
 
   getErrorMessage() {
