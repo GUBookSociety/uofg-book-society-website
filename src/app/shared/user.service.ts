@@ -7,7 +7,7 @@ import { User } from './authentication/IUser';
 })
 export class UserService {
 
-  constructor(public firestore: AngularFirestore) { }
+  constructor() { }
 
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));

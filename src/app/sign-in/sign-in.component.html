@@ -42,9 +42,9 @@
 
 <div class="container h-100" (keyup.enter)="authService.login(email.value, password.value)">
   <div class="row h-100 justify-content-center align-items-center">
-    <div id="loginCard" class="col-12 mb-5 text-center">
+    <div id="loginCard" class="col-12 mb-5 text-center" style="background-color: white; border: #c8c8c8; border-style: solid; border-radius: 10px;">
 
-      <button class="mb-4" routerLink="" mat-icon-button color="secondary" aria-label="Example icon button with a menu icon">
+      <button class="mt-4 mb-4" routerLink="" mat-icon-button color="secondary" aria-label="Example icon button with a menu icon">
         <mat-icon id="book">book</mat-icon>
       </button>
 
@@ -72,7 +72,7 @@
 
       <button id="login" class="mb-4" mat-raised-button color="primary" (click)="authService.login(email.value, password.value)">Login</button>
 
-      <p class="font-weight-light">No account? Make one <a routerLink="signUp">here!</a></p>
+      <p class="font-weight-light mb-4">No account? Make one <a routerLink="signUp">here!</a></p>
 
     </div>   
   </div>  
