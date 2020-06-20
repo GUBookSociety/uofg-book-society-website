@@ -34,9 +34,12 @@
         <hr class="nav-divider">
         <a routerLink="/404"><span class="h6">404 Page</span></a>
         <hr class="nav-divider">
-        <div class="text-center">
+        <div class="text-center" *ngIf="!authService.isLoggedIn">
             <button mat-button class="ml-0 mr-2 collapsedButton" routerLink="signIn"><span>Sign In</span></button>
             <button mat-button class="collapsedButton" routerLink="signUp"><span>Sign Up</span></button>
+        </div>
+        <div class="text-center" *ngIf="authService.isLoggedIn">
+            <button mat-button class="collapsedButton" (click)="authService.logout()" routerLink=""><span>Logout</span></button>
         </div>
     </div>
 </div>

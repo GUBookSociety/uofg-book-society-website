@@ -26,10 +26,10 @@
 </div> -->
 
 <div class="container h-100" (keyup.enter)="authService.signup(forename.value, surname.value, signUpEmail.value, password.value)">
-  <div class="row h-100 justify-content-center align-items-center">
+  <div class="row h-100 mx-3 justify-content-center align-items-center">
     <div id="loginCard" class="col-12 mb-5 text-center">
 
-      <button class="mb-4" routerLink="" mat-icon-button color="secondary" aria-label="Example icon button with a menu icon">
+      <button class="mt-4 mb-4" routerLink="" mat-icon-button color="secondary" aria-label="Example icon button with a menu icon">
         <mat-icon id="book">book</mat-icon>
       </button>
 
@@ -74,7 +74,7 @@
 
       <button id="signUp" class="mb-4" mat-raised-button color="primary" (click)="authService.signup(forename.value, surname.value, signUpEmail.value, password.value)">Sign Up</button>
 
-      <p class="font-weight-light">Have an account already? Sign in <a routerLink="">here!</a></p>
+      <p class="font-weight-light mb-4">Have an account already? Sign in <a routerLink="">here!</a></p>
 
     </div>   
   </div>  

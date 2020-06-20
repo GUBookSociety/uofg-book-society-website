@@ -8,6 +8,10 @@ mat-form-field {
 
 #loginCard {
     max-width: 500px;
+    background-color: white;
+    border: #c8c8c8;
+    border-style: solid;
+    border-radius: 10px;
 }
 
 button:focus {
