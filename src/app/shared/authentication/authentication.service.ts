@@ -42,7 +42,7 @@ export class AuthenticationService {
       this.ngZone.run(() => {
         this.router.navigate(['']);
       });
-      this._snackBar.open("Logged in as " + forename + " " + surname, "Dismiss", {
+      this._snackBar.open("Thanks for signing up, " + forename + "!", "Dismiss", {
         duration: 3000
       });
     }).catch((error) => {
