@@ -16,7 +16,7 @@ import { SignedInAuthGuard } from './shared/authentication/signedIn.guard';
 const routes: Routes = [
   { path: '', component: MainPageComponent },
   { path: '', redirectTo: '', pathMatch: 'full' },
-  { path: 'form', component: FormPageComponent},
+  { path: 'form', component: FormPageComponent },
   { path: 'signIn', component: SignInComponent, canActivate: [SignedInAuthGuard]},
   { path: 'signUp', component: SignUpComponent, canActivate: [SignedInAuthGuard] },
   { path: '**', component: PageNotFoundComponent },  // Wildcard route for a 404 page

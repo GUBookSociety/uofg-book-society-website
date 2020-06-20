@@ -70,7 +70,9 @@
 
       <br>
 
-      <button id="login" mat-raised-button color="primary" (click)="authService.login(email.value, password.value)">Login</button>
+      <button id="login" class="mb-4" mat-raised-button color="primary" (click)="authService.login(email.value, password.value)">Login</button>
+
+      <p class="font-weight-light">No account? Make one <a routerLink="signUp">here!</a></p>
 
     </div>   
   </div>  
