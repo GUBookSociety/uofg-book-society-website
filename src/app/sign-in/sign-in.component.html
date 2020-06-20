@@ -1,3 +1,79 @@
-<p>sign-in works!</p>
+<!-- 
+<div class="container-fluid h-100" style="background-color: gray;" (keyup.enter)="authService.login(email.value, password.value)">
+  <div class="row">
+    <p>Sign in to Glasgow University Book Society</p>
+  </div>  
 
-<a routerLink="">Click this to go back home</a>
+  <div class="row">
+
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your email</mat-label>
+        <input matInput placeholder="pat@example.com" [formControl]="email">
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+
+  </div>
+
+  <div class="row">
+    <mat-form-field appearance="fill">
+      <mat-label>Enter your password</mat-label>
+      <input matInput [formControl]="password" [type]="hide ? 'password' : 'text'">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+  
+  <div class="row">
+      <button mat-raised-button color="primary" (click)="authService.login(email.value, password.value)">Login</button>
+    </div>
+
+    <div class="row">
+    <div *ngIf="authService.err">{{ authService.err }}</div>
+  </div>
+
+    <br>
+
+    <div class="row">
+    <a routerLink="">Click this to go back home</a>
+  </div>
+
+</div> -->
+
+<div class="container h-100" (keyup.enter)="authService.login(email.value, password.value)">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div id="loginCard" class="col-12 mb-5 text-center">
+
+      <button class="mb-4" routerLink="" mat-icon-button color="secondary" aria-label="Example icon button with a menu icon">
+        <mat-icon id="book">book</mat-icon>
+      </button>
+
+      <p class="lead mb-4">Sign in to the Glasgow University Book Society</p>
+      
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your email</mat-label>
+        <input matInput placeholder="books@example.com" [formControl]="email">
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+
+      <br>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your password</mat-label>
+        <input matInput [formControl]="password" [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <div *ngIf="authService.err">{{ authService.err }}</div>
+
+      <br>
+
+      <button id="login" class="mb-4" mat-raised-button color="primary" (click)="authService.login(email.value, password.value)">Login</button>
+
+      <p class="font-weight-light">No account? Make one <a routerLink="signUp">here!</a></p>
+
+    </div>   
+  </div>  
+</div>

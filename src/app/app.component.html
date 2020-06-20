@@ -1,5 +1,8 @@
-<app-navbar *ngIf="(router.url != '/signIn') && (router.url != '/signUp')"></app-navbar>
+<app-navbar *ngIf="(router.url != '/signIn') && (router.url != '/signUp') && authService.isLoggedIn"></app-navbar>
 
-<br>
+<!-- <router-outlet></router-outlet> -->
 
-<router-outlet></router-outlet>
+<!-- Comment 3 lines below and uncomment ^^ if you don't want to start with a login screen -->
+<app-sign-in *ngIf="!authService.isLoggedIn && (router.url != '/signUp')"></app-sign-in>
+<app-sign-up *ngIf="!authService.isLoggedIn && !(router.url != '/signUp')"></app-sign-up>
+<router-outlet *ngIf="authService.isLoggedIn"></router-outlet>

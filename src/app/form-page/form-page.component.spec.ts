@@ -4,7 +4,6 @@ import { FormPageComponent } from './form-page.component';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../../environments/environment';
 
-
 describe('FormPageComponent', () => {
   let component: FormPageComponent;
   let fixture: ComponentFixture<FormPageComponent>;

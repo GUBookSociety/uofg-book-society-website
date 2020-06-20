@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { AuthenticationService } from '../shared/authentication/authentication.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignUpComponent implements OnInit {
 
-  constructor() { }
+  forename = new FormControl('');
+  surname = new FormControl('');
+  signUpEmail = new FormControl('');
+  password = new FormControl('');
+  hide = true;
+
+  constructor(public authService: AuthenticationService) { }
 
   ngOnInit(): void {
+    this.authService.err = "";
+  }
+
+  getErrorMessage() {
+    if (this.signUpEmail.hasError('required')) {
+      return 'You must enter a value';
+    }
+
+    return this.signUpEmail.hasError('email') ? 'Not a valid email' : '';
   }
 
 }
