@@ -10,6 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MainPageComponent } from './main-page/main-page.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { BooksListComponent } from './books-list/books-list.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -19,6 +20,7 @@ describe('AppComponent', () => {
         AngularFireModule.initializeApp(environment.firebase),
         MatButtonModule,
         MatIconModule,
+        MatSnackBarModule
       ],
       declarations: [
         AppComponent,

@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FormPageComponent } from './form-page.component';
 import { AngularFireModule } from '@angular/fire';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../environments/environment';
 
 describe('FormPageComponent', () => {
   let component: FormPageComponent;

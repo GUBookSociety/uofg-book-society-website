@@ -1,4 +1,4 @@
-<div class="example-container ml-3">
+<div class="example-container mt-4 ml-3">
     <mat-form-field appearance="fill">
       <mat-label>Input</mat-label>
       <input matInput>
@@ -15,4 +15,19 @@
       <mat-label>Textarea</mat-label>
       <textarea matInput></textarea>
     </mat-form-field>
+</div>
+
+<!-- <div *ngIf="authService.userData as user">
+  <span class="ml-3">UID: {{ user.uid }}</span>
+  <span class="ml-3">Email: {{ user.email }}</span>
+  <span class="ml-3">Forename: {{ user.forename }}</span>
+  <span class="ml-3 mb-3">Surname: {{ user.surname }}</span>
+</div> -->
+
+<!-- item.payload.doc.data().name -->
+
+<div class="ml-3" *ngIf="userService.user as user">
+  <p>Signed in: {{ user.Forename }} {{ user.Surname }}</p>
+  <p>ID: {{ user.id }}</p>
+  <p>Email Address: {{ user.Email }}</p>
 </div>

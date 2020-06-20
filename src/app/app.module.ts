@@ -28,9 +28,11 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';
 
 // ng-Bootstrap imports
 
@@ -50,6 +52,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    AngularFireAuthGuardModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MatToolbarModule,
@@ -59,6 +62,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatInputModule,
     MatSelectModule,
     MatChipsModule,
+    MatSnackBarModule,
     NgbModule,
 
   ],

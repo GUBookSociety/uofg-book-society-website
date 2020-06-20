@@ -1,3 +1,81 @@
-<p>sign-up works!</p>
 
-<a routerLink="">Click this to go back home</a>
+<!-- <div>
+    <p>Sign up here.</p>
+
+    <label>
+      Forename:
+      <input type="text" [formControl]="forename">
+    </label>
+  
+    <label>
+      Surname:
+      <input type="text" [formControl]="surname">
+    </label>
+
+      <label>
+        Email:
+        <input type="text" [formControl]="email">
+      </label>
+    
+      <label>
+        Password:
+        <input type="text" [formControl]="password">
+      </label>
+    <button (click)="authService.signup(forename.value, surname.value, email.value, password.value)">Sign Up</button>
+    <div *ngIf="authService.err">{{ authService.err }}</div>
+</div> -->
+
+<div class="container h-100" (keyup.enter)="authService.signup(forename.value, surname.value, signUpEmail.value, password.value)">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div id="loginCard" class="col-12 mb-5 text-center">
+
+      <button class="mb-4" routerLink="" mat-icon-button color="secondary" aria-label="Example icon button with a menu icon">
+        <mat-icon id="book">book</mat-icon>
+      </button>
+
+      <p class="lead mb-4">Sign up for the Glasgow University Book Society</p>
+
+      <mat-form-field class="mb-1" appearance="fill">
+        <mat-label>Enter your first name</mat-label>
+        <input matInput [formControl]="forename" required>
+        <mat-error *ngIf="forename.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+
+      <br>
+
+      <mat-form-field class="mb-1" appearance="fill">
+        <mat-label>Enter your surname</mat-label>
+        <input matInput [formControl]="surname" required>
+        <mat-error *ngIf="surname.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+
+      <br>
+      
+      <mat-form-field class="mb-1" appearance="fill">
+        <mat-label>Enter your email</mat-label>
+        <input matInput placeholder="books@example.com" [formControl]="signUpEmail" required>
+        <mat-error *ngIf="signUpEmail.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+
+      <br>
+
+      <mat-form-field class="mb-2" appearance="fill">
+        <mat-label>Enter your password</mat-label>
+        <input matInput [formControl]="password" [type]="hide ? 'password' : 'text'" required>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="password.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+
+      <div *ngIf="authService.err">{{ authService.err }}</div>
+
+      <br>
+
+      <button id="signUp" class="mb-4" mat-raised-button color="primary" (click)="authService.signup(forename.value, surname.value, signUpEmail.value, password.value)">Sign Up</button>
+
+      <p class="font-weight-light">Have an account already? Sign in <a routerLink="">here!</a></p>
+
+    </div>   
+  </div>  
+</div>

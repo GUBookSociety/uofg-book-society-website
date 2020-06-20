@@ -1,10 +1,11 @@
 import { TestBed } from '@angular/core/testing';
-import { BooksService } from './books.service';
+
+import { UserService } from './user.service';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../../environments/environment';
 
-describe('BooksService', () => {
-  let service: BooksService;
+describe('UserService', () => {
+  let service: UserService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -12,7 +13,7 @@ describe('BooksService', () => {
         AngularFireModule.initializeApp(environment.firebase)
       ]
     });
-    service = TestBed.inject(BooksService);
+    service = TestBed.inject(UserService);
   });
 
   it('should be created', () => {
