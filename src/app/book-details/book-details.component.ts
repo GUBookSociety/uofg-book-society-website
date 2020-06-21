@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -11,7 +11,8 @@ import { Book } from '../shared/models/book.model';
   styleUrls: ['./book-details.component.css']
 })
 export class BookDetailsComponent implements OnInit {
-  book : Book = null
+  book : Book;
+  books: Set<Book>;
 
   constructor(
     private route: ActivatedRoute, 
@@ -19,13 +20,7 @@ export class BookDetailsComponent implements OnInit {
     private location: Location) { }
 
   ngOnInit(): void {
-    this.getBook();
-  }
-
-  getBook(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    this.bookService.getBook(id)
-      .subscribe(book => this.book = book);
+    this.book = JSON.parse(localStorage.getItem('currentBook'));
   }
 
 }

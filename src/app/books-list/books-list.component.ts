@@ -24,4 +24,8 @@ export class BooksListComponent implements OnInit {
     this.bookStorage.deleteBook(data);
   }
 
+  saveBookOnClick(book: Book) {
+    localStorage.setItem('currentBook', JSON.stringify(book));
+  }
+
 }

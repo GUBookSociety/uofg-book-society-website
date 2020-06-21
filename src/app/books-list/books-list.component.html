@@ -15,7 +15,7 @@
       <div class="col-md-2">{{ book.name}}</div>
       <div class="col-md-2">{{ book.author }}</div>
       <div class="col-md-2">
-         <button mat-flat-button color="primary" routerLink="/bookDetail/{{book.id}}">Details</button>
+         <button mat-flat-button color="primary" routerLink="/bookDetail/{{book.id}}" (click)="saveBookOnClick(book)">Details</button>
       </div>
       <div class="col-md-2">
          <button mat-flat-button color="warn" (click)="deleteBook(book)">
