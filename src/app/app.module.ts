@@ -33,6 +33,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';
+import { BookDetailsComponent } from './book-details/book-details.component';
 
 // ng-Bootstrap imports
 
@@ -45,7 +46,8 @@ import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';
     FormPageComponent,
     BooksListComponent,
     SignInComponent,
-    SignUpComponent
+    SignUpComponent,
+    BookDetailsComponent
   ],
   imports: [
     BrowserModule,

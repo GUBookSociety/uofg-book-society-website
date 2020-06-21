@@ -9,6 +9,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { AuthGuard } from './shared/authentication/auth.guard';
 import { SignedInAuthGuard } from './shared/authentication/signedIn.guard';
+import { BookDetailsComponent } from './book-details/book-details.component';
 
 // to restrict pages to logged in users only, add "canActivate: [AuthGuard]" after the component name
 // to restrict pages to NON-logged in users only, add "canActivate: [SignedInAuthGuard]" after the component name
@@ -16,9 +17,10 @@ import { SignedInAuthGuard } from './shared/authentication/signedIn.guard';
 const routes: Routes = [
   { path: '', component: MainPageComponent },
   { path: '', redirectTo: '', pathMatch: 'full' },
-  { path: 'form', component: FormPageComponent },
-  { path: 'signIn', component: SignInComponent, canActivate: [SignedInAuthGuard]},
+  { path: 'form', component: FormPageComponent, canActivate: [AuthGuard] },
+  { path: 'signIn', component: SignInComponent, canActivate: [SignedInAuthGuard] },
   { path: 'signUp', component: SignUpComponent, canActivate: [SignedInAuthGuard] },
+  { path: 'bookDetail/:id', component: BookDetailsComponent, canActivate: [AuthGuard] },
   { path: '**', component: PageNotFoundComponent },  // Wildcard route for a 404 page
 ];
 

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Book } from './models/book.model';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +32,15 @@ export class BooksService {
         })
       });
     return this.books;
+  }
+
+  getBook(id: String): Observable<Book>{
+    for (const book of this.books){
+      if (book.id == id) {
+        return of(book);
+      }
+    }
+    return of(null);
   }
 
 
