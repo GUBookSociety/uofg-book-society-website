@@ -21,37 +21,27 @@ export class BooksService {
       .subscribe(res => {
         this.books.clear();
         res.forEach(ele => {
-            this.books.add({
-              id: ele.payload.doc.id,
-              name: ele.payload.doc.get('Name'),
-              author: ele.payload.doc.get('Author'),
-              avgRating: ele.payload.doc.get('Rating'),
-              month: ele.payload.doc.get('Month'),
-              pageCount: ele.payload.doc.get('PageCount')
-            })
+          this.books.add({
+            id: ele.payload.doc.id,
+            name: ele.payload.doc.get('Name'),
+            author: ele.payload.doc.get('Author'),
+            avgRating: ele.payload.doc.get('Rating'),
+            month: ele.payload.doc.get('Month'),
+            pageCount: ele.payload.doc.get('PageCount')
+          })
         })
       });
     return this.books;
   }
 
-  getBook(id: String): Observable<Book>{
-    for (const book of this.books){
-      if (book.id == id) {
-        return of(book);
-      }
-    }
-    return of(null);
-  }
-
-
   createBook(data) {
-    let ret =  new Promise<any>((resolve, reject) => {
+    let ret = new Promise<any>((resolve, reject) => {
       this.firestore
         .collection("Books")
         .add(data)
         .then(res => { }, err => reject(err));
     });
-  
+
     return ret;
   }
 

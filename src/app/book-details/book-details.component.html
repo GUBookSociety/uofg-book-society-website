@@ -1,1 +1,27 @@
-<p>{{book.author}}</p>
+<div *ngIf="book">
+    <br>
+    <div class="container h-100">
+        <h1 class="mat-h1">{{book.name}} Details</h1>
+        <div class="row">
+            <div class="col-sm-4 col-md-4"><h3 class="mat-h3">Author</h3></div>
+            <div class="col-md-6">{{book.author}}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 col-md-4"><h3 class="mat-h3">Page Count</h3></div>
+            <div class="col-sm-4 col-md-4">{{book.pageCount}}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 col-md-4"><h3 class="mat-h3">Month read</h3></div>
+            <div class="col-sm-4 col-md-4">{{book.month}}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 col-md-4"><h3 class="mat-h3">Average Rating</h3></div>
+            <div class="col-sm-4 col-md-4">{{book.avgRating}}</div>
+            <!-- button will go to a page where users can leave reviews -->
+            <div class="col-sm-4 col-md-4"><button mat-flat-button color="primary">Leave a rating</button></div>
+        </div>
+        <div class="row">
+            <div class="col" align="center"><h3 class="mat-h3">Picture placeholder</h3></div>
+        </div>
+    </div>
+</div>
