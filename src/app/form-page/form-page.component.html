@@ -1,23 +1,46 @@
 <form class="mt-4 mx-5" [formGroup]="this.booksService.form" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-    <input placeholder="Book Name"
-        formControlName="name"
-        type="text"
-        class="form-control"
-        required>
-    <input placeholder="Price"
-        formControlName="price"
-        type="number"
-        class="form-control"
-        required>
+    <div class="container ml-5">
+        <div class="row">
+            <h2 class="mat-h2">New Book form</h2>
+        </div>
+        <div class="row">
+            <mat-form-field apperance="fill">
+                <mat-label>Book Name</mat-label>
+                <input matInput formControlName="Name" type="text" required>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field apperance="fill">
+                <mat-label>Author</mat-label>
+                <input matInput formControlName="Author" type="text" required>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field apperance="fill">
+                <mat-label>Page Count</mat-label>
+                <input matInput formControlName="PageCount" type="number" required>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field apperance="fill">
+                <mat-label>Rating</mat-label>
+                <input matInput formControlName="Rating" type="number" required>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field apperance="fill">
+                <mat-label>Month read</mat-label>
+                <input matInput formControlName="Month" type="text" required>
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <button mat-raised-button color="primary" type="submit" [disabled]="!booksService.form.valid">
+                Submit
+            </button>
+        </div>
     </div>
-    
-    <button 
-       class="waves-effect waves-light btn col s12" 
-       type="submit"
-       [disabled]="!booksService.form.valid">
-    Submit
-  </button>
 </form>
+<br>
 
 <app-books-list></app-books-list>

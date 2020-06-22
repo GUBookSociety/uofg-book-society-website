@@ -58,6 +58,14 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "test": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.test.ts"
+                }
+              ]
             }
           }
         },
@@ -69,6 +77,9 @@
           "configurations": {
             "production": {
               "browserTarget": "uofg-book-society:build:production"
+            },
+            "test": {
+              "browserTarget": "uofg-book-society:build:test"
             }
           }
         },
@@ -94,6 +105,16 @@
               "src/styles.css"
             ],
             "scripts": []
+          },
+          "configurations": {
+            "test": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.test.ts"
+                }
+              ]
+            }
           }
         },
         "lint": {
@@ -118,6 +139,9 @@
           "configurations": {
             "production": {
               "devServerTarget": "uofg-book-society:serve:production"
+            },
+            "test": {
+              "devServerTarget": "uofg-book-society:serve:test"
             }
           }
         },

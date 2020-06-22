@@ -90,6 +90,7 @@ export class AuthenticationService {
   logout(): void {
     this.auth.signOut().then(() => {
       localStorage.removeItem('userData');
+      localStorage.removeItem('currentBook');
       this.router.navigate(['']);
     })
   }

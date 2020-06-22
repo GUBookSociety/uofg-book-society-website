@@ -5,9 +5,9 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
+    "test": "ng test --configuration=test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e --configuration=test --port 4201"
   },
   "private": true,
   "dependencies": {
@@ -37,7 +37,7 @@
     "@angular/compiler-cli": "^9.1.11",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
-    "@types/node": "^12.11.1",
+    "@types/node": "^12.12.47",
     "codelyzer": "^5.1.2",
     "firebase-tools": "^7.12.1",
     "fuzzy": "^0.1.3",

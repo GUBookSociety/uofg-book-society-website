@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksService } from "../shared/books.service";
+import { Book } from '../shared/models/book.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-books-list',
@@ -8,17 +10,22 @@ import { BooksService } from "../shared/books.service";
 })
 export class BooksListComponent implements OnInit {
 
-  constructor(private booksService:BooksService) { }
-  items;
+  constructor(private bookStorage: BooksService) { }
+  books: Set<Book>;
   ngOnInit(): void {
-    this.getItems();
+    this.getBooks();
   }
 
-  getItems = () =>
-    this.booksService
-    .getItems()
-    .subscribe(res => (this.items = res));
+  getBooks() {
+    this.books = this.bookStorage.getBooks();
+  }
 
-  deleteItem = data => this.booksService.deleteItem(data);
+  deleteBook(data) { 
+    this.bookStorage.deleteBook(data);
+  }
+
+  saveBookOnClick(book: Book) {
+    localStorage.setItem('currentBook', JSON.stringify(book));
+  }
 
 }
