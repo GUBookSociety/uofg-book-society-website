@@ -1,5 +1,5 @@
-import { Picture } from "./picture.model";
 import { Review } from "./review.model";
+import { Observable } from "rxjs";
 
 export class Book {
     id: string;
@@ -8,6 +8,6 @@ export class Book {
     avgRating: number;
     month: string;
     pageCount: number;
-    // picture: Picture;
+    // imageUrl: Observable<any>;
     // reviews: Review[];
 }

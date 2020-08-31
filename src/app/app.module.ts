@@ -32,6 +32,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';
 import { BookDetailsComponent } from './book-details/book-details.component';
 
@@ -66,7 +67,7 @@ import { BookDetailsComponent } from './book-details/book-details.component';
     MatChipsModule,
     MatSnackBarModule,
     NgbModule,
-
+    AngularFireStorageModule,
   ],
   providers: [BooksService],
   bootstrap: [AppComponent]

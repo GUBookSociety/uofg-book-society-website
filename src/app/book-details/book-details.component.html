@@ -20,8 +20,8 @@
             <!-- button will go to a page where users can leave reviews -->
             <div class="col-sm-4 col-md-4"><button mat-flat-button color="primary">Leave a rating</button></div>
         </div>
-        <div class="row">
-            <div class="col" align="center"><h3 class="mat-h3">Picture placeholder</h3></div>
+        <div class="row" *ngIf="imageUrl | async; let url">
+            <div class="col" align="center"><img [src]="url"></div>
         </div>
     </div>
 </div>

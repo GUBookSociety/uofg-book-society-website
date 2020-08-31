@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Book } from './models/book.model';
-import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -27,10 +26,11 @@ export class BooksService {
             author: ele.payload.doc.get('Author'),
             avgRating: ele.payload.doc.get('Rating'),
             month: ele.payload.doc.get('Month'),
-            pageCount: ele.payload.doc.get('PageCount')
+            pageCount: ele.payload.doc.get('PageCount'),
           })
         })
       });
+    
     return this.books;
   }
 
