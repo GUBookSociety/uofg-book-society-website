@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Book } from './models/book.model';
+import { AngularFireStorage } from '@angular/fire/storage';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { Book } from './models/book.model';
 export class BooksService {
   books: Set<Book> = new Set();
 
-  constructor(private firestore: AngularFirestore) {
+  constructor(private firestore: AngularFirestore, private storage: AngularFireStorage) {
 
   }
 
@@ -48,6 +49,12 @@ export class BooksService {
   deleteBook(book: Book) {
     if (this.books.has(book)) {
       this.books.delete(book);
+    }
+
+    // Delete the picture associated with this book
+    if(book){
+      let imageUrl = this.storage.ref('/'+ (book.name.toLowerCase()) + '.jpg').getDownloadURL();
+      imageUrl.subscribe(val => this.storage.storage.refFromURL(val).delete())
     }
 
     return this.firestore

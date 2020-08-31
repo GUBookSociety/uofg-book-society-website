@@ -21,7 +21,9 @@ export class BooksListComponent implements OnInit {
   }
 
   deleteBook(data) { 
-    this.bookStorage.deleteBook(data);
+    if(confirm("Are you sure you want to delete this book?")){
+      this.bookStorage.deleteBook(data);
+    }
   }
 
   saveBookOnClick(book: Book) {

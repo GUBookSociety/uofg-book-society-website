@@ -20,12 +20,12 @@ export class BookDetailsComponent implements OnInit {
     private route: ActivatedRoute, 
     private bookService: BooksService, 
     private location: Location,
-    private afStroage: AngularFireStorage) { }
+    private afStorage: AngularFireStorage) { }
 
   ngOnInit(): void {
     this.book = JSON.parse(localStorage.getItem('currentBook'));
     if(this.book){
-      this.imageUrl = this.afStroage.ref('/'+ (this.book.name.toLowerCase()) + '.jpg').getDownloadURL();
+      this.imageUrl = this.afStorage.ref('/'+ (this.book.name.toLowerCase()) + '.jpg').getDownloadURL();
     }
   }
 
