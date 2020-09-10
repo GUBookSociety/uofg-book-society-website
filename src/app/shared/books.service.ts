@@ -28,6 +28,7 @@ export class BooksService {
             avgRating: ele.payload.doc.get('Rating'),
             month: ele.payload.doc.get('Month'),
             pageCount: ele.payload.doc.get('PageCount'),
+            picture: ele.payload.doc.get('PictureURL'),
           })
         })
       });
@@ -35,13 +36,18 @@ export class BooksService {
     return this.books;
   }
 
-  createBook(data) {
+  createBook(data, image : File) {
     let ret = new Promise<any>((resolve, reject) => {
       this.firestore
         .collection("Books")
         .add(data)
         .then(res => { }, err => reject(err));
     });
+
+    if(image){
+      const filePath = `/${image.name}`;
+      this.storage.upload(filePath, image);
+    }
 
     return ret;
   }
@@ -52,8 +58,8 @@ export class BooksService {
     }
 
     // Delete the picture associated with this book
-    if(book){
-      let imageUrl = this.storage.ref('/'+ (book.name.toLowerCase()) + '.jpg').getDownloadURL();
+    if(book.picture){
+      let imageUrl = this.storage.ref(book.picture).getDownloadURL();
       imageUrl.subscribe(val => this.storage.storage.refFromURL(val).delete())
     }
 
@@ -80,5 +86,7 @@ export class BooksService {
     Month: new FormControl('', [
       Validators.required
     ]),
+    PictureURL: new FormControl('', [
+    ])
   });
 }

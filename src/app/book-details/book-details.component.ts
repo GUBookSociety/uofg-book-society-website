@@ -25,7 +25,7 @@ export class BookDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.book = JSON.parse(localStorage.getItem('currentBook'));
     if(this.book){
-      this.imageUrl = this.afStorage.ref('/'+ (this.book.name.toLowerCase()) + '.jpg').getDownloadURL();
+      this.imageUrl = this.afStorage.ref(this.book.picture).getDownloadURL();
     }
   }
 

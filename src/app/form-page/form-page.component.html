@@ -33,7 +33,18 @@
                 <input matInput formControlName="Month" type="text" required>
             </mat-form-field>
         </div>
-
+        <div class="row">
+            <input 
+            type="file" (change)="onFileChanged($event)"
+            style="display:none"
+            #fileInput
+            accept="image/*"
+            >
+        <button mat-raised-button color="primary" type="button" (click)="fileInput.click()">Upload Image</button>
+        </div>
+        <div class="row" *ngIf="selectedImage">
+            <h3 class="col">{{selectedImage.name}}</h3>
+        </div>
         <div class="row">
             <button mat-raised-button color="primary" type="submit" [disabled]="!booksService.form.valid">
                 Submit

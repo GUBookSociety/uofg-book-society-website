@@ -8,6 +8,6 @@ export class Book {
     avgRating: number;
     month: string;
     pageCount: number;
-    // imageUrl: Observable<any>;
+    picture: string;
     // reviews: Review[];
 }
