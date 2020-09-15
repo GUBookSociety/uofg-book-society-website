@@ -41,39 +41,49 @@
 </div> -->
 
 <div class="container h-100" (keyup.enter)="authService.login(email.value, password.value)">
-  <div class="row h-100 mx-3 justify-content-center align-items-center">
-    <div id="loginCard" class="col-12 mb-5 text-center">
+  <div class="row h-100 mx-3 align-items-center">
 
-      <button class="mt-4 mb-4" routerLink="" mat-icon-button color="secondary" aria-label="Example icon button with a menu icon">
-        <mat-icon id="book">book</mat-icon>
-      </button>
+    <div style="padding-top: 150px; top:-150px" class="col mt-2 mb-3">
+      <div class="row justify-content-center">
+        <img class="pb-4 px-3" src="assets/img/bookSocLogo.png" style="max-height: 250px;">
+      </div>
 
-      <p class="lead mb-4">Sign in to the Glasgow University Book Society</p>
-      
-      <mat-form-field appearance="fill">
-        <mat-label>Enter your email</mat-label>
-        <input matInput placeholder="books@example.com" [formControl]="email">
-        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-      </mat-form-field>
+      <div class="row justify-content-center">
+        <div id="loginCard" class="col text-center">
 
-      <br>
+          <p class="lead mt-5 mb-4">Sign in to the Glasgow University Book Society</p>
+          
+          <mat-form-field appearance="fill">
+            <mat-label>Enter your email</mat-label>
+            <input matInput placeholder="books@example.com" [formControl]="email">
+            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+    
+          <br>
+    
+          <mat-form-field appearance="fill">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [formControl]="password" [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+    
+          <div *ngIf="authService.err">{{ authService.err }}</div>
+    
+          <br>
+    
+          <button id="login" class="mb-4" mat-raised-button color="primary" (click)="authService.login(email.value, password.value)">Login</button>
+    
+          <p class="font-weight-light mb-4">No account? Make one <a routerLink="signUp">here!</a></p>
+    
+        </div>  
+      </div>
 
-      <mat-form-field appearance="fill">
-        <mat-label>Enter your password</mat-label>
-        <input matInput [formControl]="password" [type]="hide ? 'password' : 'text'">
-        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-        </button>
-      </mat-form-field>
+    </div>
 
-      <div *ngIf="authService.err">{{ authService.err }}</div>
+    
 
-      <br>
 
-      <button id="login" class="mb-4" mat-raised-button color="primary" (click)="authService.login(email.value, password.value)">Login</button>
-
-      <p class="font-weight-light mb-4">No account? Make one <a routerLink="signUp">here!</a></p>
-
-    </div>   
   </div>  
 </div>
