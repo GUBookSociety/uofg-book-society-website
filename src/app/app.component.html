@@ -3,6 +3,10 @@
 <!-- <router-outlet></router-outlet> -->
 
 <!-- Comment 3 lines below and uncomment ^^ if you don't want to start with a login screen -->
-<app-sign-in *ngIf="!authService.isLoggedIn && (router.url != '/signUp')"></app-sign-in>
-<app-sign-up *ngIf="!authService.isLoggedIn && !(router.url != '/signUp')"></app-sign-up>
-<router-outlet *ngIf="authService.isLoggedIn"></router-outlet>
+
+<!-- <app-sign-in *ngIf="!authService.isLoggedIn && (router.url != '/signUp')"></app-sign-in>
+<app-sign-up *ngIf="!authService.isLoggedIn && !(router.url != '/signUp')"></app-sign-up> -->
+
+<app-intro-page *ngIf="!authService.isLoggedIn"></app-intro-page>
+
+<!-- <router-outlet *ngIf="authService.isLoggedIn"></router-outlet> -->

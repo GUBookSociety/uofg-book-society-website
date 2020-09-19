@@ -34,6 +34,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';
 import { BookDetailsComponent } from './book-details/book-details.component';
+import { IntroPageComponent } from './intro-page/intro-page.component';
 
 // ng-Bootstrap imports
 
@@ -47,7 +48,8 @@ import { BookDetailsComponent } from './book-details/book-details.component';
     BooksListComponent,
     SignInComponent,
     SignUpComponent,
-    BookDetailsComponent
+    BookDetailsComponent,
+    IntroPageComponent
   ],
   imports: [
     BrowserModule,

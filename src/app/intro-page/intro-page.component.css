@@ -1,0 +1,106 @@
+/* If the screen size is 600px wide or less */
+@media screen and (max-width: 420px) {
+    #title {
+      font-size: 30px;
+    }
+
+    #logo {
+        max-height: 170px;
+    }
+}
+
+@media screen and (min-width: 420px) {
+    #title {
+      font-size: 40px;
+    }
+
+    #logo {
+        max-height: 200px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    #title {
+      font-size: 60px;
+    }
+
+    #logo {
+        max-height: 250px;
+    }
+}
+
+@media screen and (max-height: 390px) and (min-width: 420px) {
+    #title {
+      font-size: 30px;
+    }
+
+    #logo {
+        max-height: 150px;
+    }
+}
+
+@media screen and (min-height: 390px) and (min-width: 420px) {
+    #title {
+      font-size: 30px;
+    }
+    #logo {
+        max-height: 150px;
+    }
+}
+
+@media screen and (min-height: 505px) and (min-width: 420px) {
+    #title {
+      font-size: 40px;
+    }
+    #logo {
+        max-height: 200px;
+    }
+}
+
+@media screen and (min-height: 690px) and (min-width: 420px) {
+    #title {
+      font-size: 50px;
+    }
+    #logo {
+        max-height: 250px;
+    }
+}
+
+
+/* If the screen size is 600px wide or less */
+@media screen and (max-height: 390px) and (min-width: 1200px) {
+    #title {
+      font-size: 30px;
+    }
+
+    #logo {
+        max-height: 150px;
+    }
+}
+
+@media screen and (min-height: 390px) and (min-width: 1200px) {
+    #title {
+      font-size: 30px;
+    }
+    #logo {
+        max-height: 150px;
+    }
+}
+
+@media screen and (min-height: 505px) and (min-width: 1200px) {
+    #title {
+      font-size: 40px;
+    }
+    #logo {
+        max-height: 200px;
+    }
+}
+
+@media screen and (min-height: 690px) and (min-width: 1200px) {
+    #title {
+      font-size: 60px;
+    }
+    #logo {
+        max-height: 250px;
+    }
+}
