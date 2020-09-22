@@ -1,15 +1,16 @@
 
-
-<div class="container-fluid h-100 mb-3">
-    <mat-toolbar class="d-flex justify-content-around px-6 mb-4">
+    <mat-toolbar style="position: absolute; z-index: 10;" class="topNavbar d-none d-md-flex justify-content-around px-6 mb-4">
         <div class="pl-4"></div>
-        <a style="color:black" routerLink=""><span class="d-none d-md-inline font-weight-light nav-link pb-1 pl-4">ABOUT</span></a>
-        <a style="color:black" routerLink=""><span class="d-none d-md-inline font-weight-light nav-link pb-1">EVENTS</span></a>
-        <a style="color:black" routerLink=""><span class="d-none d-md-inline font-weight-light nav-link pb-1">CONTACT</span></a>
+        <a #about (mouseover)="mouseEnter(about)" (mouseout)="mouseLeave(about)" style="color:black" routerLink=""><span class="d-none d-md-inline font-weight-light nav-link pb-1 pl-4">ABOUT</span></a>
+        <a #events (mouseover)="mouseEnter(events)" (mouseout)="mouseLeave(events)" style="color:black" routerLink=""><span class="d-none d-md-inline font-weight-light nav-link pb-1">EVENTS</span></a>
+        <a #contact (mouseover)="mouseEnter(contact)" (mouseout)="mouseLeave(contact)" style="color:black" routerLink=""><span class="d-none d-md-inline font-weight-light nav-link pb-1">CONTACT</span></a>
         <div></div>
     </mat-toolbar>
+
+
+<div class="container-fluid h-100 mb-3 topNavbar">
     <div class="row h-100 align-items-center">
-        <div style="padding-top: 200px; top: -200px" class="col mt-2 mb-3">
+        <div class="col text-center mt-2 mb-3">
             <div class="row justify-content-center">
                 <img id="logo" class="pb-4" src="assets/img/bookSocLogo.png">
             </div>
@@ -18,10 +19,10 @@
                 <p id="title" style="font-weight:400" class="display-1 mt-2">Welcome to the<br>Glasgow<br>University Book<br>Society!</p>
             </div>
 
-            <div class="row justify-content-center mt-5">
+            <!-- <div class="row justify-content-center mt-5">
                 <button mat-raised-button color="primary" id="signUp" class="mx-3">Sign Up</button>
                 <button mat-raised-button color="primary" id="signUp" class="mx-3">Log In</button>
-            </div>
+            </div> -->
 
         </div>
     </div>  
@@ -29,12 +30,16 @@
 
 <div style="background-color: #EDEDED;" class="container-fluid">
     <div class="row justify-content-center">
-        <div style="background-color: #EDEDED; border-radius: 5px;" class="col-6 pt-4 pb-5 px-4 text-center">
+        <div style="background-color: #EDEDED; border-radius: 5px;" class="col-lg-6 col-md-8 col-sm-10 pt-4 pb-5 px-4 text-center">
             <h2 style="font-size: 35px; line-height: 2;">About Us</h2>
             <p class="display-1" style="font-size:25px; line-height: 1.381;">
-                We're a new, relaxed society that casually read a book every month and then discuss our thoughts on the theme, prose and story.
+                The Glasgow University Book Society is a new society that welcomes all that love reading and discussing books.
+                We take suggestions for books on a monthly basis 
+                and then hold a vote to decide on the book we will read in the coming month.
                 <br><br>
-                We've got lots of events throughout the year, so come along if you're looking to socialise with fellow book lovers!
+                At the end of said month we will hold an informal and relaxed discussion on the theme, character, prose or anything that comes to mind.
+                <br><br>
+                As our member pool grows we imagine we may hold more than one monthly book at a time and that members may find others with similar reading interests to organise their own discussions together.
 
             </p>
         </div>
@@ -43,27 +48,33 @@
 
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <div style="border-radius: 5px;" class="col-6 pt-4 pb-5 px-4 text-center">
+        <div style="border-radius: 5px;" class="col-lg-6 col-md-8 col-sm-10 pt-4 pb-5 px-4 text-center">
             <h2 style="font-size: 35px; line-height: 2;">Events</h2>
             <p class="display-1" style="font-size:25px; line-height: 1.381;">
-                We're a new, relaxed society that casually read a book every month and then discuss our thoughts on the theme, prose and story.
+                Being a new society we are very open to suggestions however asides reading our social activities may include going to the pub, watching movie adaptations of books and book swaps.
                 <br><br>
-                We've got lots of events throughout the year, so come along if you're looking to socialise with fellow book lovers!
-
+                We have plenty of social members as is so please do not feel pressured to read any books you do not want to.
             </p>
         </div>
     </div>
 </div>
 
 <div class="container-fluid">
-    <div class="row justify-content-center mb-5">
-        <div style="background-color: #393939; border-radius: 5px; top: -10px" class="col-6 pt-4 pb-5 px-4 text-center">
+    <div style="background-color: #393939;" class="row justify-content-center mb-5">
+        <div style=" border-radius: 5px; top: -10px" class="col-lg-6 col-md-8 col-sm-10 pt-4 pb-5 px-4 text-center">
             <h2 style="font-size: 35px; line-height: 2; color:white">Contact Us</h2>
             <p class="display-1" style="font-size:25px; line-height: 1.381; color:white">
-                We're a new, relaxed society that casually read a book every month and then discuss our thoughts on the theme, prose and story.
+                If you have any suggestions please get in touch either on our Facebook where we are regularly active, or through our email address:
+                gubooksoc@mail.com.
                 <br><br>
-                We've got lots of events throughout the year, so come along if you're looking to socialise with fellow book lovers!
-
+                To suggest a book for the monthly vote check our Facebook page for the most recent announcement that voting is open.
+                <br><br>
+                FAQ
+                <br><br>
+                How do I join? <br>
+                Follow our facebook page, any events listed are open to anyone to attend. Membership is completely FREE.
+                Do I need to buy the monthly book?
+                Only if you want to read it. We are hoping to strike some sort of deal with a local bookseller in the future to make this cheaper for everyone.
             </p>
         </div>
     </div>
@@ -72,3 +83,10 @@
         <button mat-raised-button color="primary" id="signUp" class="mx-3">Back to Top</button>
     </div>
 </div>
+
+<!-- 
+
+    
+
+
+ -->
