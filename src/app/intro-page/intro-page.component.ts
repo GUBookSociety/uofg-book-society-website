@@ -44,4 +44,25 @@ export class IntroPageComponent implements OnInit {
     });
   }
 
+  clickNavbarLink(heading: string): void {
+    const scrollElement = window.document.scrollingElement || window.document.body || window.document.documentElement;
+    var position = document.getElementById(heading).offsetTop;
+    anime({
+      targets: scrollElement,
+      scrollTop: position,
+      duration: 500,
+      easing: 'easeInOutQuart'
+    });
+  }
+
+  backToTop(): void {
+    const scrollElement = window.document.scrollingElement || window.document.body || window.document.documentElement;
+    anime({
+      targets: scrollElement,
+      scrollTop: 0,
+      duration: 500,
+      easing: 'easeInOutQuart'
+    });
+  }
+
 }

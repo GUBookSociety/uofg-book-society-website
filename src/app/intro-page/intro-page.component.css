@@ -122,3 +122,14 @@ a {
 #title {
   font-family: "Roboto Slab";
 }
+
+#bottomBanner {
+  /* background-color: ; */
+  cursor: pointer;
+  transition-property: background-color;
+  transition-duration: 0.3s
+}
+
+#bottomBanner:hover {
+  background-color: rgb(179, 179, 179);
+}
